@@ -6,11 +6,11 @@ use iron::status;
 mod http;
 use http::router::Router;
 mod keeper;
-use keeper::registry;
+use keeper::registry::Keeper;
 
 fn main() {
     let mut router = Router::new();
-    let mut _keeper = registry::Keeper::new();
+    let mut _keeper = Keeper::new();
 
     router.add_route("".to_string(), |_: &mut Request| {
         Ok(Response::with((status::Ok, "Hello!")))
