@@ -52,7 +52,7 @@ mod tests {
     use keeper::registry::Keeper;
 
     #[test]
-    fn add() {
+    fn subscribe() {
         let test_event_name = "test_event";
         let test_url = "test_url";
         let mut kpr = Keeper::new();
@@ -69,10 +69,11 @@ mod tests {
     }
 
     #[test]
-    fn remove() {
+    fn unsubscribe() {
         let test_event_name = "test_event";
         let test_url = "test_url";
         let mut kpr = Keeper::new();
+
         assert_eq!(kpr.subscribers.len(), 0);
         assert!(kpr.subscribe(test_event_name.to_string(), test_url.to_string()).is_ok());
         assert_eq!(kpr.subscribers.len(), 1);
@@ -81,7 +82,7 @@ mod tests {
     }
 
     #[test]
-    fn get_blank() {
+    fn get_subscribers() {
         let test_event_name = "test_event";
         let test_url = "test_url";
         let mut kpr = Keeper::new();

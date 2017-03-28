@@ -12,7 +12,7 @@ fn main() {
     let mut router = Router::new();
     let mut _keeper = Keeper::new();
 
-    router.add_route("".to_string(), |_: &mut Request| {
+    router.add_route("subscribe".to_string(), |_: &mut Request| {
         Ok(Response::with((status::Ok, "Hello!")))
     });
 
